@@ -1,17 +1,11 @@
 <script>
-    import IntroVideo from '$lib/components/IntroVideo'
-
+  import IntroVideo from "$lib/components/IntroVideo.svelte";
 </script>
 
 <div class="container">
+  <h1 class="text-2xl font-bold my-16">درباره‌ی ما</h1>
 
-<h1 class="text-2xl font-bold my-16">
-درباره‌ی ما
-</h1>
+  ما کامیونیتی ایرانی شبیه‌سازی دوبعدی فوتبال هستیم.
 
-ما کامیونیتی ایرانی شبیه‌سازی دوبعدی فوتبال هستیم.
-
-
-<IntroVideo />
-
+  <IntroVideo />
 </div>
