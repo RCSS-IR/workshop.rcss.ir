@@ -15,10 +15,10 @@
   ];
 
   let leftLinks = [
-    // {
-    //     name: 'درباره‌ی ما',
-    //     url: '/about'
-    // },
+    {
+        name: 'درباره‌ی ما',
+        url: '/about'
+    },
     // {
     //     name: 'تماس با ما',
     //     url: '/contact'
