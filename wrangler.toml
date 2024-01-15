@@ -1,0 +1,14 @@
+name = "workshop"
+account_id = ""
+
+main = "./.cloudflare/worker.js"
+site.bucket = "./.cloudflare/public"
+
+build.command = "npm run build"
+
+compatibility_date = "2022-07-12"
+
+workers_dev = true
+send_metrics = false
+
+[vars]
