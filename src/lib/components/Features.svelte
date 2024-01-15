@@ -1,76 +1,72 @@
 <script>
-    import SectionTitle from "$lib/components/SectionTitle.svelte";
-    import LocationIcon from "$lib/icons/LocationIcon.svelte";
-    import ClockIcon from "$lib/icons/ClockIcon.svelte";
+  import SectionTitle from "$lib/components/SectionTitle.svelte";
+  import LocationIcon from "$lib/icons/LocationIcon.svelte";
+  import ClockIcon from "$lib/icons/ClockIcon.svelte";
 
-    let features = [
-        {
-            title: "مکان برگذاری دوره",
-            desc: "غیر حضوری",
-            unit: "",
-            icon: LocationIcon,
-            color: "blue",
-        },
-        {
-            title: "مقدار زمان آموزش",
-            desc: "۳۰+",
-            unit: "ساعت",
-            icon: ClockIcon,
-            color: "green",
-        },
-        {
-            title: "مدرسین",
-            desc: "۹",
-            unit: "نفر",
-            icon: LocationIcon,
-            color: "red",
-        },
-        {
-            title: "ظرفیت دوره",
-            desc: "+۲۰۰",
-            unit: "نفر",
-            icon: LocationIcon,
-            color: "yellow",
-        }
-    ]
+  let features = [
+    {
+      title: "مکان برگذاری دوره",
+      desc: "غیر حضوری",
+      unit: "",
+      icon: LocationIcon,
+      color: "blue",
+    },
+    {
+      title: "مقدار زمان آموزش",
+      desc: "۳۰+",
+      unit: "ساعت",
+      icon: ClockIcon,
+      color: "green",
+    },
+    {
+      title: "مدرسین",
+      desc: "۹",
+      unit: "نفر",
+      icon: LocationIcon,
+      color: "red",
+    },
+    {
+      title: "ظرفیت دوره",
+      desc: "+۲۰۰",
+      unit: "نفر",
+      icon: LocationIcon,
+      color: "yellow",
+    },
+  ];
 </script>
 
-<div class="hidden bg-blue-200 bg-green-200 bg-red-200 bg-yellow-200
-text-blue-800 text-green-800 text-red-800 text-yellow-800">
-</div>
+<div
+  class="hidden bg-blue-200 bg-green-200 bg-red-200 bg-yellow-200
+text-blue-800 text-green-800 text-red-800 text-yellow-800"
+></div>
 
 <div class="container mx-auto my-10">
-    <SectionTitle title="ویژگی‌های این دوره"/>
+  <SectionTitle title="ویژگی‌های این دوره" />
 
-    <div class="feature-container">
-
-        {#each features as feat}
-            <div class="item">
-
-                <div class="head">
-                    <div class="desc">
-                        <div class="circle bg-{feat.color}-200"></div>
-                        <span class="big">
-                            {feat.desc}
-                        </span>
-                        <span class="text-sm text-gray-600">
-                            {feat.unit}
-                        </span>
-                    </div>
-                    <i class="bg-{feat.color}-200 "
-                    style="color: gray">
-                        <svelte:component this={feat.icon}/>
-                    </i>
-                </div>
-                <span class="title">
-                    {feat.title}
-                </span>
-            </div>
-        {/each}
-
-    </div>
+  <div class="feature-container">
+    {#each features as feat}
+      <div class="item">
+        <div class="head">
+          <div class="desc">
+            <div class="circle bg-{feat.color}-200"></div>
+            <span class="big">
+              {feat.desc}
+            </span>
+            <span class="text-sm text-gray-600">
+              {feat.unit}
+            </span>
+          </div>
+          <i class="bg-{feat.color}-200" style="color: gray">
+            <svelte:component this={feat.icon} />
+          </i>
+        </div>
+        <span class="title">
+          {feat.title}
+        </span>
+      </div>
+    {/each}
+  </div>
 </div>
-
 
 <style lang="scss">
   .feature-container {

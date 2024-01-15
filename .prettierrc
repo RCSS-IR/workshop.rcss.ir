@@ -1,0 +1,15 @@
+{
+  "plugins": ["prettier-plugin-svelte", "prettier-plugin-organize-attributes"],
+  "printWidth": 120,
+  "htmlWhitespaceSensitivity": "ignore",
+  "jsxBracketSameLine": false,
+  "experimentalTernaries": true,
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    }
+  ]
+}
