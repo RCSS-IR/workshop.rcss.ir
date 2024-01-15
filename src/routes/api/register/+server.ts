@@ -22,7 +22,7 @@ export const POST: RequestHandler = async ({request}) => {
     const grade = gradeList.find(el => el.value === formData.grade);
     // Construct the message to be sent to the Telegram channel
     const message = [
-        `New Registration:`,
+        `#New_Registration`,
         `Name: ${formData.name}`,
         `Email: ${formData.email}`,
         `Phone: ${formData.phone}`,
