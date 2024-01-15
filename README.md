@@ -1,11 +1,8 @@
+ # workshop.rcss.ir
 
-# workshop.rcss.ir
-
-## 📖 Introduction 
+## 📖 Introduction
 
 The workshop.rcss.ir project is a SvelteKit application, automatically deployed using GitHub Actions and served globally through Cloudflare Workers.
-
-
 
 ---
 
@@ -54,7 +51,8 @@ sequenceDiagram
     Note right of Cloudflare: The application is now<br> live and distributed globally.
 ```
 
-### Register Diagram 
+### Register Diagram
+
 ```mermaid
 sequenceDiagram
 participant User
@@ -75,7 +73,6 @@ Telegram Bot->>Telegram Channel: Posts user info
 
 This project is open-sourced under the MIT License. Feel free to use, modify, and distribute the code as you see fit.
 
-
 ## 🤝 Contributing
 
 We warmly welcome contributions! 🙌
@@ -85,4 +82,3 @@ If you're interested in contributing to the workshop.rcss.ir project, feel free 
 📧 Email: [sadraiiali@gmail.com](mailto:sadraiiali@gmail.com)
 
 👥 This project is part of the efforts by Iranopen committee members to provide a learning workshop on 2D soccer simulation.
-
