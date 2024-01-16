@@ -24,7 +24,7 @@
     {
       title: "تماس با ما",
       icon: "akar-icons:phone",
-      url: "/contact",
+      url: "https://t.me/SK2iP",
     },
   ];
 
