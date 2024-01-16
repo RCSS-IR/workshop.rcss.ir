@@ -12,13 +12,14 @@
       name: "طرح درس",
       url: "/outline",
     },
-  ];
-
-  let leftLinks = [
     {
         name: 'درباره‌ی ما',
         url: '/about'
     },
+  ];
+
+  let leftLinks = [
+
     // {
     //     name: 'تماس با ما',
     //     url: '/contact'
@@ -58,9 +59,7 @@
     {/each}
   </ul>
 
-  <div class="flex flex-row justify-center items-center">
-    <img src="/img/logo.jpg" height="100" width="100" alt="logo" />
-  </div>
+
 
   <ul class="flex flex-row flex-wrap mt-7 md:mt-0 justify-center items-center text-gray-600 font-bold">
     {#each leftLinks as link}
@@ -76,6 +75,11 @@
       </li>
     {/each}
   </ul>
+
+  <div class="flex flex-row justify-center items-center">
+    <img src="/img/logo.jpg" height="100" width="100" alt="logo" />
+  </div>
+  
 </header>
 
 <style>
