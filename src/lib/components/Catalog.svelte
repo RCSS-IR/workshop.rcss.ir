@@ -24,18 +24,17 @@
 </script>
 
 <div class="w-full">
-  {#each images as image}
-    <img width="100%" src={image.path} alt={image.alt} class="catalog" />
-  {/each}
-
   <div class="w-full flex flex-row my-4 justify-center items-center">
     <a
       href="/img/catalog/catalog.pdf"
-      class="rounded bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 transition duration-300 ease-in-out"
+      class="rounded bg-blue-500 text-white px-10 py-3 hover:bg-blue-600 transition duration-300 ease-in-out"
     >
       دانلود کاتالوگ
     </a>
   </div>
+  {#each images as image}
+    <img width="100%" src={image.path} alt={image.alt} class="catalog" />
+  {/each}
 </div>
 
 <style lang="postcss">
