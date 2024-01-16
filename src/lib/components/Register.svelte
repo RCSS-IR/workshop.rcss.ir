@@ -1,11 +1,21 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
   import { gradeList } from "$lib/gradeList";
+  import Loading from "$lib/components/Loading.svelte";
+  import { Confetti } from "svelte-confetti";
 
-  let bgImage = "/img/morteza-bg.jpg";
+  enum PageState {
+    INIT = "INIT",
+    CHECKING = "CHECKING",
+    LOADING = "LOADING",
+    SUCCESS = "SUCCESS",
+    ERROR = "ERROR",
+  }
+
   let errors = [];
 
   let showErrors = false;
+  let registerState: PageState = PageState.INIT;
 
   interface ValidateFn {
     state: boolean;
@@ -15,6 +25,7 @@
   let formFields = [
     {
       type: "text",
+      id: "name",
       name: "نام و نام خانوادگی",
       icon: "akar-icons:person",
       touch: false,
@@ -28,10 +39,7 @@
 
         // only accept persian characters
         if (!/^[\u0600-\u06FF\s]+$/.test(value)) {
-          return {
-            state: false,
-            messages: ["نام و نام خانوادگی باید فارسی باشد."],
-          };
+          messages.push("نام و نام خانوادگی باید فقط شامل حروف فارسی باشد.");
         }
 
         return {
@@ -44,6 +52,7 @@
     },
     {
       type: "email",
+      id: "email",
       name: "جی میل",
       icon: "logos:google-gmail",
       touch: false,
@@ -70,6 +79,7 @@
     },
     {
       type: "tel",
+      id: "phone",
       name: "موبایل",
       icon: "akar-icons:phone",
       touch: false,
@@ -99,6 +109,7 @@
     },
     {
       type: "select",
+      id: "grade",
       inputType: "select",
       name: "پایه تحصیلی",
       icon: "mynaui:academic-hat",
@@ -135,7 +146,8 @@
       }
     });
   }
-  function submit() {
+
+  function firstSubmit() {
     checkForm();
 
     if (errors.length > 0) {
@@ -144,6 +156,11 @@
       return;
     }
 
+    registerState = PageState.CHECKING;
+  }
+
+  function submit() {
+    registerState = PageState.LOADING;
     // send message a post message to /api/telegram
     fetch("/api/register", {
       method: "POST",
@@ -159,133 +176,255 @@
     })
       .then((res) => {
         if (res.status === 200) {
-          alert("ثبت نام شما با موفقیت انجام شد. ایمیلی به آدرس شما ارسال شد.");
           formFields.forEach((field) => {
             field.value = "";
           });
-        } else {
-          alert("مشکلی در ثبت نام شما پیش آمد. لطفا دوباره تلاش کنید.");
+          registerState = PageState.SUCCESS;
+          return;
         }
+
+        registerState = PageState.ERROR;
       })
       .catch((err) => {
-        alert("مشکلی در ثبت نام شما پیش آمد. لطفا دوباره تلاش کنید.");
+        registerState = PageState.ERROR;
       });
   }
 </script>
 
 <div class="container m-auto">
-  <div class="main-container" style="background-image: url('{bgImage}')">
-    <div class="form-container">
-      <h6 class="title">حالا ثبت نام کن</h6>
+  <div class="main-container" class:expand={registerState !== PageState.INIT}>
+    {#if registerState === PageState.INIT}
+      <div class="form-container">
+        <h6 class="title">حالا ثبت نام کن</h6>
 
-      <div class="description desc color-links">
-        <p style="color: inherit; font-size: inherit; " class="px-2">
-          کافیه اطلاعاتت رو وارد کنی تا ایمیل ثبت نام از طرف کمیته فنی برات ارسال بشه. فقط حتما
-          <span class="text-red-700">حتما</span>
-          <span class="text-red-900">حتما</span>
-          Gmail (جی میل) خودتون رو وارد کنید.
-        </p>
-      </div>
+        <div class="description desc color-links">
+          <p style="color: inherit; font-size: inherit; " class="px-2">
+            کافیه اطلاعاتت رو وارد کنی تا ایمیل ثبت نام از طرف کمیته فنی برات ارسال بشه. فقط حتما
+            <span class="text-red-700">حتما</span>
+            <span class="text-red-900">حتما</span>
+            Gmail (جی میل) خودتون رو وارد کنید.
+          </p>
+        </div>
 
-      <div class="flex flex-col w-full px-2">
-        {#each formFields as field}
-          {#if field.type === "select"}
-            <div class="w-full flex flex-row items-center">
-              <span class=" w-40 ml-2">
-                {field.name}
-              </span>
-              <select
-                class="field-drop-down w-full input-group"
-                name=""
-                bind:value={field.value}
-                on:change={(e) => (field?.change ? field.change(e) : "") || checkForm()}
-                required
-              >
-                <option value="" disabled selected hidden></option>
-                {#each field?.list as option}
-                  <option value={option.value}>
-                    {option.name}
-                  </option>
-                {/each}
-              </select>
-            </div>
-          {:else if field.type === "text"}
-            <div class="field-text w-full input-group">
-              <span class="icon">
-                <Icon icon={field.icon} />
-              </span>
-              <div class="input-sec w-full">
-                <input
-                  type="text"
-                  class="input"
-                  placeholder=" "
-                  name=""
-                  on:keyup={(e) => (field?.change ? field.change(e) : "") || checkForm()}
-                  bind:value={field.value}
-                  required
-                />
-                <label>
+        <div class="flex flex-col w-full px-2">
+          {#each formFields as field}
+            {#if field.type === "select"}
+              <div class="w-full flex flex-row items-center">
+                <span class=" w-40 ml-2">
                   {field.name}
-                </label>
-              </div>
-            </div>
-          {:else if field.type === "email"}
-            <div class="field-text w-full input-group">
-              <span class="icon">
-                <Icon icon={field.icon} />
-              </span>
-              <div class="input-sec w-full">
-                <input
-                  type="email"
-                  class="input"
-                  placeholder=" "
+                </span>
+                <select
+                  class="field-drop-down w-full input-group"
                   name=""
-                  on:keyup={(e) => (field?.change ? field.change(e) : "") || checkForm()}
                   bind:value={field.value}
+                  on:change={(e) => (field?.change ? field.change(e) : "") || checkForm()}
                   required
-                />
-                <label>
-                  {field.name}
-                </label>
+                >
+                  <option value="" disabled selected hidden></option>
+                  {#each field?.list as option}
+                    <option value={option.value}>
+                      {option.name}
+                    </option>
+                  {/each}
+                </select>
               </div>
-            </div>
-          {:else if field.type === "tel"}
-            <div class="field-text w-full input-group">
-              <span class="icon">
-                <Icon icon={field.icon} />
-              </span>
-              <div class="input-sec w-full">
-                <input
-                  type="tel"
-                  class="input"
-                  placeholder=" "
-                  name=""
-                  on:keyup={(e) => (field?.change ? field.change(e) : "") || checkForm()}
-                  bind:value={field.value}
-                  required
-                />
-                <label>
-                  {field.name}
-                </label>
-              </div>
-            </div>
-          {/if}
-
-          {#if showErrors}
-            {#each field.errors as error}
-              <div class="lead_errors">
-                <div class="error-message">
-                  {error}
+            {:else if field.type === "text"}
+              <div class="field-text w-full input-group">
+                <span class="icon">
+                  <Icon icon={field.icon} />
+                </span>
+                <div class="input-sec w-full">
+                  <input
+                    type="text"
+                    class="input"
+                    placeholder=" "
+                    name=""
+                    on:keyup={(e) => (field?.change ? field.change(e) : "") || checkForm()}
+                    bind:value={field.value}
+                    required
+                  />
+                  <label>
+                    {field.name}
+                  </label>
                 </div>
               </div>
-            {/each}
-          {/if}
+            {:else if field.type === "email"}
+              <div class="field-text w-full input-group">
+                <span class="icon">
+                  <Icon icon={field.icon} />
+                </span>
+                <div class="input-sec w-full">
+                  <input
+                    type="email"
+                    class="input"
+                    placeholder=" "
+                    name=""
+                    on:keyup={(e) => (field?.change ? field.change(e) : "") || checkForm()}
+                    bind:value={field.value}
+                    required
+                  />
+                  <label>
+                    {field.name}
+                  </label>
+                </div>
+              </div>
+            {:else if field.type === "tel"}
+              <div class="field-text w-full input-group">
+                <span class="icon">
+                  <Icon icon={field.icon} />
+                </span>
+                <div class="input-sec w-full">
+                  <input
+                    type="tel"
+                    class="input"
+                    placeholder=" "
+                    name=""
+                    on:keyup={(e) => (field?.change ? field.change(e) : "") || checkForm()}
+                    bind:value={field.value}
+                    required
+                  />
+                  <label>
+                    {field.name}
+                  </label>
+                </div>
+              </div>
+            {/if}
+
+            {#if showErrors}
+              {#each field.errors as error}
+                <div class="lead_errors">
+                  <div class="error-message">
+                    {error}
+                  </div>
+                </div>
+              {/each}
+            {/if}
+          {/each}
+        </div>
+        <div class="fields-wrapper mt-4">
+          <button type="submit" class="leads-submit__button leads-submit" on:click={firstSubmit}>ثبت نام</button>
+        </div>
+      </div>
+    {:else if registerState === PageState.CHECKING}
+      <div class="form-container">
+        <h1>تایید ثبت نام</h1>
+        <hr class="border-gray-700 mb-8" />
+
+        {#each formFields as fields}
+          <div class="field-text w-full input-group">
+            <span class="icon">
+              <Icon icon={fields.icon} />
+            </span>
+            <span class="text-gray-600">
+              {fields?.value ?
+                (fields.id !== "grade" ? fields.value : gradeList.find((item) => item.value === fields.value).name) ||
+                "-"
+              : "-"}
+            </span>
+          </div>
         {/each}
+
+        <button class="leads-submit__button leads-submit" on:click={submit}>ارسال</button>
       </div>
-      <div class="fields-wrapper mt-4">
-        <button type="submit" class="leads-submit__button leads-submit" on:click={submit}>ثبت نام</button>
+      <div>
+        <button
+          class=" py-4 px-8 text-white rounded-xl bg-transparent hover:text-gray-300 font-extrabold"
+          on:click={() => (registerState = PageState.INIT)}
+        >
+          <Icon icon="akar-icons:arrow-right" class="w-4 h-4 ml-2 inline-block" />
+          بازگشت به فرم
+        </button>
       </div>
-    </div>
+    {:else if registerState === PageState.LOADING}
+      <div class="form-container">
+        <div class="flex flex-row justify-center items-center text-green-400">
+          <Loading />
+        </div>
+        <h1>در حال ارسال</h1>
+      </div>
+    {:else if registerState === PageState.ERROR}
+      <div class="form-container">
+        <h1 class="error-title">مشکلی پیش آمد.</h1>
+        <hr class="border-gray-700 mb-8" />
+        <p class="text-gray-600 text-center">
+          متاسفانه مشکلی در ارسال اطلاعات پیش آمد.
+          <br />
+          لطفا دوباره تلاش کنید.
+        </p>
+      </div>
+      <div>
+        <button
+          class=" py-4 px-8 text-white rounded-xl bg-gray-600 hover:bg-gray-900 transition-colors font-extrabold"
+          on:click={() => (registerState = PageState.INIT)}
+        >
+          <Icon icon="akar-icons:arrow-right" class="w-4 h-4 ml-2 inline-block" />
+          بازگشت به فرم
+        </button>
+      </div>
+    {:else if registerState === PageState.SUCCESS}
+      <div
+        style="
+ position: fixed;
+ top: -50px;
+ left: 0;
+ height: 100vh;
+ width: 100vw;
+ display: flex;
+ justify-content: center;
+ overflow: hidden;
+ pointer-events: none;"
+      >
+        <Confetti
+          x={[-5, 5]}
+          y={[0, 0.1]}
+          delay={[500, 2000]}
+          infinite
+          duration="5000"
+          amount="200"
+          fallDistance="100vh"
+        />
+      </div>
+      <div class="form-container">
+        <h1>با موفقیت انجام شد.</h1>
+        <hr class="border-gray-700 mb-8" />
+        <p class="text-gray-600 text-center">
+          اطلاعات تماس با شما ذخیره شد.
+          <br />
+          بزودی با شما تماس خواهیم گرفت.
+
+          <br />
+          <span class="font-bold">
+            برای اطمینان از دریافت آخرین اخبار و اطلاعات راجب دوره و کمیته فنی، در کانال تلگرامی ما عضو شوید.
+          </span>
+        </p>
+        <div class="flex flex-row justify-center items-center gap-4 my-4">
+          <a
+            class="h-20 w-20 flex flex-col items-center justify-center hover:bg-gray-200 transition-colors duration-300 rounded-lg"
+            href="https://t.me/SoccerSim2D"
+          >
+            <Icon icon="logos:telegram" class="w-8 h-8 rounded-md" />
+            <p class="text-gray-600 pt-2">کانال تلگرام</p>
+          </a>
+
+          <a
+            class="h-20 w-20 flex flex-col items-center justify-center hover:bg-gray-200 transition-colors duration-300 rounded-lg"
+            href="https://t.me/SoccerSim2DGroup"
+          >
+            <Icon icon="logos:telegram" class="w-8 h-8 rounded-md" />
+            <p class="text-gray-600 pt-2">گروه تلگرام</p>
+          </a>
+        </div>
+      </div>
+      <div>
+        <button
+          class=" py-4 px-8 text-white rounded-xl bg-gray-600 hover:bg-gray-900 transition-colors font-extrabold"
+          on:click={() => (registerState = PageState.INIT)}
+        >
+          <Icon icon="akar-icons:cross" class="w-4 h-4 ml-2 inline-block" />
+          بستن این صفحه
+        </button>
+      </div>
+    {/if}
   </div>
 </div>
 
@@ -295,7 +434,11 @@
   }
 
   .main-container {
-    @apply relative flex items-center rounded-none md:rounded-3xl p-2 md:p-5 drop-shadow-md;
+    @apply relative flex flex-col items-center rounded-none md:rounded-3xl p-2 md:p-5 drop-shadow-md;
+    background-image: url("/img/morteza-bg.jpg");
+    height: 500px;
+    width: 100%;
+    transition: height 200ms ease-in-out;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -305,6 +448,14 @@
       @apply bg-white bg-opacity-50 rounded-3xl p-5 text-gray-700 shadow-2xl;
       width: 100%;
       max-width: 400px;
+
+      h1 {
+        @apply text-center my-8 bg-gradient-to-b font-extrabold text-3xl from-gray-500 to-gray-800 bg-clip-text text-transparent;
+      }
+
+      .error-title {
+        @apply text-center my-8 bg-gradient-to-b font-extrabold text-3xl from-red-500 to-red-800 bg-clip-text text-transparent;
+      }
 
       .title {
         @apply text-center my-8 bg-gradient-to-b font-extrabold text-3xl from-gray-500 to-gray-800 bg-clip-text text-transparent;
@@ -340,6 +491,22 @@
           width: 10px;
         }
       }
+    }
+  }
+
+  .expand {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-image: url("/img/morteza-bg-blur.jpg");
+    border-radius: 0;
+    @apply flex flex-col gap-4 justify-center items-center;
+
+    .form-container {
+      @apply bg-gray-200 bg-opacity-90 rounded-md p-5 text-gray-700 shadow-2xl;
     }
   }
 

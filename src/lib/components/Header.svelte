@@ -13,8 +13,8 @@
       url: "/outline",
     },
     {
-        name: 'درباره‌ی ما',
-        url: '/about'
+      name: "درباره‌ی ما",
+      url: "/about",
     },
   ];
 

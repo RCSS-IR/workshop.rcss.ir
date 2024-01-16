@@ -37,17 +37,17 @@
     {
       title: "کانال تلگرام اطلاع رسانی",
       icon: "akar-icons:telegram-fill",
-      url: "https://t.me/RCSS_IR",
+      url: "https://t.me/SoccerSim2D",
     },
     {
       title: "گروه تلگرام",
       icon: "akar-icons:telegram-fill",
-      url: "https://t.me/RCSS_IR",
+      url: "https://t.me/SoccerSim2DGroup",
     },
     {
       title: "کانال یوتیوب",
       icon: "akar-icons:youtube-fill",
-      url: "https://www.youtube.com/RCSS.IR",
+      url: "https://www.youtube.com/@RCSS2D",
     },
   ];
 </script>
