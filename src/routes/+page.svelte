@@ -10,6 +10,7 @@
   import Faq from "$lib/components/Faq.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import IntroVideo from "$lib/components/IntroVideo.svelte";
+  import When from "$lib/components/When.svelte";
 </script>
 
 <svelte:head>
@@ -22,6 +23,7 @@
   <Story />
   <IntroVideo />
   <Team />
+  <When />
   <Features />
   <Path />
   <Register />
