@@ -45,8 +45,14 @@
             <br />
             جلسه‌ اول - کارگاه آموزش شبیه سازی دوبعدی - مقدمه
             <br />
-            لینک: https://meet.google.com/mpq-cawc-oob
+          </p>
+          <h2>
+                        لینک: 
+          <a href="https://meet.google.com/mpq-cawc-oob">meet.google.com/mpq-cawc-oob</a>
+          </h2>
+          <p>
             <br />
+            <p>
             لینک جلسه در کانال تلگرام هم قرار داده خواهد شد و برای افرادی که ثبت نام کردند از طریق ایمیل ارسال می شود.
           </p>
         </div>
