@@ -6,6 +6,7 @@
 
   enum PageState {
     INIT = "INIT",
+    OLD = "OLD",
     CHECKING = "CHECKING",
     LOADING = "LOADING",
     SUCCESS = "SUCCESS",
@@ -193,7 +194,7 @@
 
 <div class="container m-auto">
   <div class="main-container" class:expand={registerState !== PageState.INIT}>
-    {#if registerState === PageState.INIT}
+    {#if registerState === PageState.OLD}
       <div class="form-container">
         <h6 class="title">حالا ثبت نام کن</h6>
 
@@ -303,6 +304,44 @@
         </div>
         <div class="fields-wrapper mt-4">
           <button type="submit" class="leads-submit__button leads-submit" on:click={firstSubmit}>ثبت نام</button>
+        </div>
+      </div>
+    {:else if registerState === PageState.INIT}
+      <div class="form-container">
+        <h1>
+          کلاس‌ها شروع شده است
+          <span class="text-red-700 rotate--45 inline-block">!</span>
+        </h1>
+        <hr class="border-gray-700 mb-8" />
+
+        <p class="text-gray-600 text-center">
+          متاسفانه زمان ثبت نام در کلاس‌ها به پایان رسیده است.
+          <br />
+          برای اطمینان از دریافت آخرین اخبار و اطلاعات راجب دوره و کمیته فنی، در کانال تلگرامی ما عضو شوید.
+        </p>
+
+        <div class="flex flex-row justify-center items-center gap-4 my-4">
+          <a
+            class="h-20 w-20 flex flex-col items-center justify-center hover:bg-gray-200 transition-colors duration-300 rounded-lg"
+            href="https://t.me/SoccerSim2D"
+          >
+            <Icon icon="logos:telegram" class="w-8 h-8 rounded-md" />
+            <p class="text-gray-600 pt-2">کانال تلگرام</p>
+          </a>
+
+          <a
+            class="h-20 w-20 flex flex-col items-center justify-center hover:bg-gray-200 transition-colors duration-300 rounded-lg"
+            href="https://t.me/SoccerSim2DGroup"
+          >
+            <Icon icon="logos:telegram" class="w-8 h-8 rounded-md" />
+            <p class="text-gray-600 pt-2">گروه تلگرام</p>
+          </a>
+        </div>
+
+        <div>
+          همچنان شما میتوانید با عضویت در سایت LMS
+          <a href="https://lms.rcss.ir" target="_blank" class="font-bold text-blue-900">[پیوند به وبسایت]</a>
+          به ویدیو‌های جلسات قبلی و همینطور لینک جلسات بعدی دسترسی داشته باشید.
         </div>
       </div>
     {:else if registerState === PageState.CHECKING}

@@ -23,7 +23,6 @@
   <Story />
   <IntroVideo />
   <Team />
-  <When />
   <Features />
   <Path />
   <Register />

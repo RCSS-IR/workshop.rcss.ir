@@ -8,6 +8,8 @@ const TELEGRAM_CHAT_ID = env.TELEGRAM_CHAT_ID;
 
 /** @type {RequestHandler} */
 export const POST: RequestHandler = async ({ request }) => {
+  return error(500, "This endpoint is not available");
+
   // Parse the incoming data
   const formData = await request.json();
 
