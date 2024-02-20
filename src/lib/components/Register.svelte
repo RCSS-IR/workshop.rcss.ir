@@ -473,15 +473,14 @@
   }
 
   .main-container {
-    @apply relative flex flex-col items-center rounded-none md:rounded-3xl p-2 md:p-5 drop-shadow-md;
-    background-image: url("/img/morteza-bg.jpg");
+    @apply relative flex bg-gray-600 flex-col items-center rounded-none md:rounded-3xl p-2 md:p-5 drop-shadow-md;
     height: 500px;
     width: 100%;
     transition: height 200ms ease-in-out;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(113, 112, 112, 0.5);
 
     .form-container {
       @apply bg-white bg-opacity-50 rounded-3xl p-5 text-gray-700 shadow-2xl;
@@ -540,9 +539,8 @@
     top: 0;
     left: 0;
     z-index: 100;
-    background-image: url("/img/morteza-bg-blur.jpg");
     border-radius: 0;
-    @apply flex flex-col gap-4 justify-center items-center;
+    @apply flex flex-col bg-gray-600 gap-4 justify-center items-center;
 
     .form-container {
       @apply bg-gray-200 bg-opacity-90 rounded-md p-5 text-gray-700 shadow-2xl;

@@ -13,9 +13,14 @@
       url: "/outline",
     },
     {
+      name: "کلاس های ضبط شده",
+      url: "/recorded-class", 
+    },
+    {
       name: "درباره‌ی ما",
       url: "/about",
     },
+
   ];
 
   let leftLinks = [

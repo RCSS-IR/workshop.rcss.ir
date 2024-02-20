@@ -1,5 +1,8 @@
 <script>
   import YoutubeIcon from "$lib/icons/YoutubeIcon.svelte";
+  import SectionTitle from "$lib/components/SectionTitle.svelte";
+  import Header from "$lib/components/Header.svelte";
+  import Footer from "$lib/components/Footer.svelte";
   export let sessions = [
     {
       title: " جلسه اول",
@@ -7,7 +10,11 @@
       description: "در این جلسه به آشنایی با دوره می پردازیم",
       youtubeLink: "https://youtu.be/y89kXYZeXJ4?si=H_4m-ssvMjXMiff0",
       members: [
-        { name: "نادر زارع ", role: "عضو کمیته جهانی ربوکاپ", image: "/img/people/nader-zare.jpg" },
+        {
+          name: "نادر زارع ",
+          role: "عضو کمیته جهانی ربوکاپ",
+          image: "/img/people/nader-zare.jpg",
+        },
         {
           name: "اشکان کشاورزی",
           role: "مسئول کمیته فنی ایران",
@@ -68,81 +75,112 @@
         },
       ],
     },
+    {
+      title: " جلسه پنجم الی شانزدهم",
+      sessiontitle: "هنوز ادامه داره ",
+      youtubeLink: "https://www.youtube.com/@RCSS2D",
+      members: [
+
+      ],
+    },
   ];
 </script>
-
+<Header></Header>
+<SectionTitle title="کلاس ها"></SectionTitle>
 {#each sessions as session (session.title)}
-  <div class="container" dir="rtl">
-    <div class="flex" style="float: left;">
-      <div class="session-members">
-        {#each session.members as member}
-          <div class="member d-flex flex-column align-items-center position-relative">
-            <div class="image" style="transform: scale(1);">
-              <div class="overlay"></div>
-              <img src={member.image} class="img-fluid d-block" alt="{member.name}'s image" />
-            </div>
-            <h6 class="name">
-              {member.name}
-            </h6>
-            <p class="role">
-              {member.role}
-            </p>
-          </div>
-        {/each}
-      </div>
-    </div>
-
+  <div class="container">
     <div class="content">
-      <div class="title">{session.title}</div>
-      <div class="sessiontitle" style="position:relative;  top:10px">{session.sessiontitle}</div>
-
-      <div class="youtube-link" style="position:relative;  top:100px">
-        <div class="icon"><svelte:component this={YoutubeIcon} /></div>
-        <div class="big" style="position:relative;  right:20px">
-          <a href={session.youtubeLink}>مشاهده در یوتیوب</a>
+      <div class="title">
+        {session.title}
+        <div class="sessiontitle" style="position:relative;  top:10px">
+          {session.sessiontitle}
         </div>
       </div>
+
+      <div class="explain-content">
+        <div class="youtube-link">
+          <div class="icon">
+            <svelte:component this={YoutubeIcon} />
+          </div>
+          <div class="big" style="position:relative;  right:20px">
+            <a href={session.youtubeLink}>مشاهده در یوتیوب</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="session-members" dir="ltr">
+      {#each session.members as member}
+        <div
+          class="member d-flex flex-column align-items-center position-relative"
+        >
+          <div class="image" style="transform: scale(1);">
+            <div class="overlay"></div>
+            <img
+              src={member.image}
+              class="img-fluid d-block"
+              alt="{member.name}'s image"
+            />
+          </div>
+          <h6 class="name">
+            {member.name}
+          </h6>
+          <p class="role">
+            {member.role}
+          </p>
+        </div>
+      {/each}
     </div>
   </div>
 {/each}
 
+<Footer></Footer>
+
 <style lang="scss">
   .container {
-    @apply bg-white p-7 rounded-lg shadow-lg  mb-4;
+    @apply flex bg-white p-7 rounded-lg shadow-lg  mb-4;
+    justify-content: space-between;
   }
 
   .session-members {
     @apply flex items-start mb-4;
+    direction: rtl;
   }
-
   .session-member {
-    @apply inline-block w-32 h-40 rounded-lg overflow-hidden m-2; // Increase size to 20x20
+    @apply flex inline-block w-32 h-40 rounded-lg overflow-hidden m-2;
+    flex-direction: row;
+    // Set the session-members direction to LTR
+    // Increase size to 20x20
   }
 
   .content {
-    @apply ml-4;
-  }
+    @apply flex ml-4;
+    flex-direction: column;
+    justify-content: space-between;
 
-  .title {
-    @apply text-2xl font-bold text-green-700 mb-2;
-  }
+    .explain-content {
+      @apply flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-  .sessiontitle {
-    @apply text-xl text-gray-600 mb-4;
-  }
+      .youtube-link {
+        @apply flex flex-row  gap-0;
+        .icon {
+          display: flex;
+          color: rgb(180, 9, 9);
+        }
 
-  .youtube-link {
-    @apply flex flex-row  gap-2;
-    .icon {
-      text-align: right;
-      color: rgb(180, 9, 9);
-      width: 5px;
-      height: 5 px;
+        .big {
+          @apply flex text-sm underline;
+        }
+      }
     }
-
-    .big {
-      text-align: left;
-      @apply text-sm underline;
+    .title {
+      @apply flex text-2xl font-bold text-green-700 mb-2;
+      flex-direction: column;
+      .sessiontitle {
+        @apply flex text-xl text-gray-600 mb-4;
+      }
     }
   }
 
@@ -154,9 +192,7 @@
   }
 
   .member .image {
-    position: relative;
-    top: 0;
-    left: 0;
+    display: flex;
     padding-top: 125%;
     width: 100%;
     overflow: hidden;

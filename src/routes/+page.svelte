@@ -10,7 +10,7 @@
   import Faq from "$lib/components/Faq.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import IntroVideo from "$lib/components/IntroVideo.svelte";
-  import ClassVideoLink from "$lib/components/ClassVideoLink.svelte";
+  import ClassVideoLink from "./recorded-class/+page.svelte";
   import When from "$lib/components/When.svelte";
 </script>
 
@@ -27,7 +27,6 @@
   <Features />
   <Path />
   <Register />
-  <ClassVideoLink />
   <Organizer />
   <Faq />
   <Footer />
