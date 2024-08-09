@@ -46,9 +46,32 @@
     },
 
     {
-      title: " جلسه سوم",
+      title: "جلسه سوم" ,
+      sessiontitle: "  حل تمرین آموزش مبانی کامپیوتر و گیت ",
+      youtubeLink: "https://www.youtube.com/watch?v=nSMoRHh7kOY&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=3&pp=gAQBiAQB",
+      members: [
+        {
+          name: "امید امینی",
+          role: "دانشگاه دالهاوزی کانادا",
+          image: "/img/people/omid-amini.jpg",
+        },
+        {
+          name: "علیرضا صدرایی",
+          role: "عضو کمیته فنی جهانی",
+          image: "/img/people/alireza-sadraii-rad.jpg",
+        },
+        {
+          name: "عرفان فتحی",
+          role: "",
+          image: "/img/people/erfan-fathi.jpg",
+        },
+      ],
+    },
+
+    {
+      title: " جلسه چهارم",
       sessiontitle: " آموزش مبانی برنامه نویسی - بخش اول  ",
-      youtubeLink: "https://www.youtube.com/@RCSS2D",
+      youtubeLink: "https://www.youtube.com/watch?v=FbuIMxj28kk&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=4&pp=gAQBiAQB",
       members: [
         {
           name: "رانا رکنی",
@@ -64,9 +87,27 @@
     },
 
     {
-      title: " جلسه چهارم",
+      title: " جلسه پنجم",
+      sessiontitle: "حل تمرین مبانی برنامه نویسی",
+      youtubeLink: "https://www.youtube.com/watch?v=I8oYIp_Y4oA&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=5&pp=gAQBiAQB",
+      members: [
+        {
+          name: "صدرا خنجری",
+          role: "دانشگاه شریف",
+          image: "/img/people/sadra-khanjari.jpg",
+        },
+        {
+          name: " سروش مظلوم",
+          role: "",
+          image: "/img/people/soroush-mazloom.jpg",
+        },
+      ],
+    },
+
+    {
+      title: " جلسه ششم",
       sessiontitle: " آموزش مبانی برنامه نویسی - بخش دوم  ",
-      youtubeLink: "https://www.youtube.com/@RCSS2D",
+      youtubeLink: "https://www.youtube.com/watch?v=ACE-Hzdcc_g&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=7&pp=gAQBiAQB",
       members: [
         {
           name: "رانا رکنی",
@@ -75,16 +116,105 @@
         },
       ],
     },
-    {
-      title: " جلسه پنجم الی شانزدهم",
-      sessiontitle: "هنوز ادامه داره ",
-      youtubeLink: "https://www.youtube.com/@RCSS2D",
-      members: [
 
+
+    {
+      title: " جلسه هفتم",
+      sessiontitle: " آموزش نصب و مبانی شبیه ساز دو بعدی فوتبال",
+      youtubeLink: "https://www.youtube.com/watch?v=RYaNgjNGLv0&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=7&pp=gAQBiAQB",
+      members: [
+        {
+          name: "صدرا خنجری",
+          role: "دانشگاه شریف",
+          image: "/img/people/sadra-khanjari.jpg",
+        },
       ],
     },
+
+    {
+      title: " جلسه هشتم",
+      sessiontitle: " انواع رفتار و چگونگی پیاده سازی آنها",
+      youtubeLink: "https://www.youtube.com/watch?v=rBo7ieTODVA&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=8&pp=gAQBiAQB",
+      members: [
+        {
+          name: "اشکان کشاورزی",
+          role: "مسئول کمیته فنی ایران",
+          image: "/img/people/ashkan-keshavarzi.jpg",
+        },
+      ],
+    },
+
+    {
+      title: " جلسه نهم",
+      sessiontitle: "  حل تمرین انواع رفتار و چگونگی پیاده سازی آنها",
+      youtubeLink: "https://www.youtube.com/watch?v=E_pGDqR_1zw&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=9&pp=gAQBiAQB",
+      members: [
+        {
+          name: "اشکان کشاورزی",
+          role: "مسئول کمیته فنی ایران",
+          image: "/img/people/ashkan-keshavarzi.jpg",
+        },
+        {
+          name: " سروش مظلوم",
+          role: "",
+          image: "/img/people/soroush-mazloom.jpg",
+        },
+        {
+          name: "عرفان فتحی",
+          role: "",
+          image: "/img/people/erfan-fathi.jpg",
+        },
+      ],
+    },
+
+
+    {
+      title: " جلسه دهم",
+      sessiontitle: "آموزش رفتار های دفاعی",
+      youtubeLink: "https://www.youtube.com/watch?v=__L5P3IwOm8&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=10&pp=gAQBiAQB",
+      members: [
+        {
+          name: "آراد فیروزکوهی ",
+          role: "دانشگاه امیر کبیر",
+          image: "/img/people/arad-firouzkohi.jpg",
+        },
+      ],
+    },
+
+    {
+      title: " جلسه یازدهم",
+      sessiontitle: "نحوه پیاده سازی مارک و مرتب سازی کد ها",
+      youtubeLink: "https://www.youtube.com/@RCSS2D",
+      members: [
+        {
+          name: " سروش مظلوم",
+          role: "",
+          image: "/img/people/soroush-mazloom.jpg",
+        },
+        {
+          name: "عرفان فتحی",
+          role: "",
+          image: "/img/people/erfan-fathi.jpg",
+        },
+      ],
+    },
+
+    {
+      title: " جلسه دوازدهم",
+      sessiontitle: "آموزش رفتار های هجومی",
+      youtubeLink: "https://www.youtube.com/watch?v=z8cyW1F9SxQ&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=11&pp=gAQBiAQB",
+      members: [
+        {
+          name: "صدرا خنجری",
+          role: "دانشگاه شریف",
+          image: "/img/people/sadra-khanjari.jpg",
+        },
+      ],
+    },
+
   ];
 </script>
+
 <Header></Header>
 <SectionTitle title="کلاس ها"></SectionTitle>
 {#each sessions as session (session.title)}
@@ -107,20 +237,13 @@
           </div>
         </div>
       </div>
-
     </div>
     <div class="session-members" dir="ltr">
       {#each session.members as member}
-        <div
-          class="member d-flex flex-column align-items-center position-relative"
-        >
+        <div class="member d-flex flex-column align-items-center position-relative">
           <div class="image" style="transform: scale(1);">
             <div class="overlay"></div>
-            <img
-              src={member.image}
-              class="img-fluid d-block"
-              alt="{member.name}'s image"
-            />
+            <img src={member.image} class="img-fluid d-block" alt="{member.name}'s image" />
           </div>
           <h6 class="name">
             {member.name}
@@ -185,6 +308,8 @@
   }
 
   .member {
+    display: flex;
+    flex-direction: column;
     text-align: center !important;
     text-decoration: none;
     width: 150px;
