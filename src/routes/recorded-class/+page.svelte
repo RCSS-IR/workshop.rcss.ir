@@ -46,9 +46,10 @@
     },
 
     {
-      title: "جلسه سوم" ,
+      title: "جلسه سوم",
       sessiontitle: "  حل تمرین آموزش مبانی کامپیوتر و گیت ",
-      youtubeLink: "https://www.youtube.com/watch?v=nSMoRHh7kOY&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=3&pp=gAQBiAQB",
+      youtubeLink:
+        "https://www.youtube.com/watch?v=nSMoRHh7kOY&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=3&pp=gAQBiAQB",
       members: [
         {
           name: "امید امینی",
@@ -71,7 +72,8 @@
     {
       title: " جلسه چهارم",
       sessiontitle: " آموزش مبانی برنامه نویسی - بخش اول  ",
-      youtubeLink: "https://www.youtube.com/watch?v=FbuIMxj28kk&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=4&pp=gAQBiAQB",
+      youtubeLink:
+        "https://www.youtube.com/watch?v=FbuIMxj28kk&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=4&pp=gAQBiAQB",
       members: [
         {
           name: "رانا رکنی",
@@ -89,7 +91,8 @@
     {
       title: " جلسه پنجم",
       sessiontitle: "حل تمرین مبانی برنامه نویسی",
-      youtubeLink: "https://www.youtube.com/watch?v=I8oYIp_Y4oA&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=5&pp=gAQBiAQB",
+      youtubeLink:
+        "https://www.youtube.com/watch?v=I8oYIp_Y4oA&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=5&pp=gAQBiAQB",
       members: [
         {
           name: "صدرا خنجری",
@@ -107,7 +110,8 @@
     {
       title: " جلسه ششم",
       sessiontitle: " آموزش مبانی برنامه نویسی - بخش دوم  ",
-      youtubeLink: "https://www.youtube.com/watch?v=ACE-Hzdcc_g&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=7&pp=gAQBiAQB",
+      youtubeLink:
+        "https://www.youtube.com/watch?v=ACE-Hzdcc_g&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=7&pp=gAQBiAQB",
       members: [
         {
           name: "رانا رکنی",
@@ -117,11 +121,11 @@
       ],
     },
 
-
     {
       title: " جلسه هفتم",
       sessiontitle: " آموزش نصب و مبانی شبیه ساز دو بعدی فوتبال",
-      youtubeLink: "https://www.youtube.com/watch?v=RYaNgjNGLv0&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=7&pp=gAQBiAQB",
+      youtubeLink:
+        "https://www.youtube.com/watch?v=RYaNgjNGLv0&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=7&pp=gAQBiAQB",
       members: [
         {
           name: "صدرا خنجری",
@@ -134,7 +138,8 @@
     {
       title: " جلسه هشتم",
       sessiontitle: " انواع رفتار و چگونگی پیاده سازی آنها",
-      youtubeLink: "https://www.youtube.com/watch?v=rBo7ieTODVA&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=8&pp=gAQBiAQB",
+      youtubeLink:
+        "https://www.youtube.com/watch?v=rBo7ieTODVA&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=8&pp=gAQBiAQB",
       members: [
         {
           name: "اشکان کشاورزی",
@@ -147,7 +152,8 @@
     {
       title: " جلسه نهم",
       sessiontitle: "  حل تمرین انواع رفتار و چگونگی پیاده سازی آنها",
-      youtubeLink: "https://www.youtube.com/watch?v=E_pGDqR_1zw&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=9&pp=gAQBiAQB",
+      youtubeLink:
+        "https://www.youtube.com/watch?v=E_pGDqR_1zw&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=9&pp=gAQBiAQB",
       members: [
         {
           name: "اشکان کشاورزی",
@@ -167,11 +173,11 @@
       ],
     },
 
-
     {
       title: " جلسه دهم",
       sessiontitle: "آموزش رفتار های دفاعی",
-      youtubeLink: "https://www.youtube.com/watch?v=__L5P3IwOm8&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=10&pp=gAQBiAQB",
+      youtubeLink:
+        "https://www.youtube.com/watch?v=__L5P3IwOm8&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=10&pp=gAQBiAQB",
       members: [
         {
           name: "آراد فیروزکوهی ",
@@ -184,7 +190,7 @@
     {
       title: " جلسه یازدهم",
       sessiontitle: "نحوه پیاده سازی مارک و مرتب سازی کد ها",
-      youtubeLink: "https://www.youtube.com/@RCSS2D",
+      youtubeLink: "https://youtu.be/9ygm9rYg82g?feature=shared",
       members: [
         {
           name: " سروش مظلوم",
@@ -202,7 +208,8 @@
     {
       title: " جلسه دوازدهم",
       sessiontitle: "آموزش رفتار های هجومی",
-      youtubeLink: "https://www.youtube.com/watch?v=z8cyW1F9SxQ&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=11&pp=gAQBiAQB",
+      youtubeLink:
+        "https://www.youtube.com/watch?v=z8cyW1F9SxQ&list=PLFy1-QjBONFKYdgOVFmUBLAb7yYbRPxwH&index=11&pp=gAQBiAQB",
       members: [
         {
           name: "صدرا خنجری",
@@ -211,7 +218,6 @@
         },
       ],
     },
-
   ];
 </script>
 
@@ -263,6 +269,8 @@
   .container {
     @apply flex bg-white p-7 rounded-lg shadow-lg  mb-4;
     justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .session-members {
@@ -280,6 +288,7 @@
     @apply flex ml-4;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 280px;
 
     .explain-content {
       @apply flex;

@@ -338,11 +338,6 @@
           </a>
         </div>
 
-        <div>
-          همچنان شما میتوانید با عضویت در سایت LMS
-          <a href="https://lms.rcss.ir" target="_blank" class="font-bold text-blue-900">[پیوند به وبسایت]</a>
-          به ویدیو‌های جلسات قبلی و همینطور لینک جلسات بعدی دسترسی داشته باشید.
-        </div>
       </div>
     {:else if registerState === PageState.CHECKING}
       <div class="form-container">
